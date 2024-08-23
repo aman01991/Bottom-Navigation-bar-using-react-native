@@ -11,6 +11,7 @@ import Home from './src/screens/Home';
 import Learn from './src/screens/Learn';
 import Course from './src/screens/Course';
 import WatchList from './src/screens/WatchList';
+import Pin from './src/screens/Pin';
 
 
 const App = () => {
@@ -21,7 +22,7 @@ const App = () => {
   return (
     <>
     <View style = {styles.container}>
-      {selectedTab==0?<Home/>:selectedTab==1?<Learn/>:selectedTab==2?<Pin/>:selectedTab==3?<Course/>:<watchList/>}
+      {selectedTab==0?<Home/>:selectedTab==1?<Learn/>:selectedTab==2?<Pin/>:selectedTab==3?<Course/>:<WatchList/>}
       <View style={styles.bottomNav}>
         <View style={styles.bottomNav2}>
           <TouchableOpacity style={styles.bottomTab} onPress={() => {setSelectedTab(0);}}>
@@ -37,7 +38,7 @@ const App = () => {
             <Text style={{color: 'white', fontSize:16, color:selectedTab==1?'yellow': 'white'}}>Learn</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={{top:-30, justifyContent:'center', alignItems:'center', ...styles.shadow}}>
+          <TouchableOpacity style={{top:-30, justifyContent:'center', alignItems:'center', ...styles.shadow}} onPress={() => {setSelectedTab(2);}}>
             <View style={{width:70, height:70, borderRadius:35, backgroundColor:'yellow'}}>
               <Image source={require('./src/images/pin.png')} style={{width:40, height:40, tintColor:'black', marginTop:15, marginLeft:13}}/>
             </View>
@@ -72,7 +73,7 @@ export default App;
 const styles = StyleSheet.create({
     container:{
       flex:1,
-      backgroundColor:'grey'
+      backgroundColor:'white'
     },
 
     bottomNav:{
